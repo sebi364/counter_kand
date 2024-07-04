@@ -41,7 +41,7 @@ metadata:
   name: counter-database
 spec:
   ports:
-    - port: 3306
+    - port: 5432
   selector:
     app: counter-database
   clusterIP: None
