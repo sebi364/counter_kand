@@ -27,7 +27,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/counter-frontend:v1 frontend/
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/counter-frontend:v1 frontend/
 
       - name: Push Docker image
-        run: docker push ghcr.io/counter-frontend:v1
+        run: docker push ghcr.io/${{ github.repository_owner }}/counter-frontend:v1
