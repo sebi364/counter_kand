@@ -59,3 +59,20 @@ spec:
       targetPort: 8080
   selector:
     app: counter-backend
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-server-ingress
+spec:
+  rules:
+    - host: backend.k3snode1.loc
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api-server
+                port:
+                  number: 8080

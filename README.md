@@ -1,6 +1,7 @@
 # Counting app - Demo React and NodeJS app
 
-[![Publish counter docker image](https://github.com/modul-i-ch-109/counter/actions/workflows/action.yml/badge.svg?branch=master)](https://github.com/modul-i-ch-109/counter/actions/workflows/action.yml)
+[![Build and push frontend](https://github.com/sebi364/m109/actions/workflows/build-frontend.yml/badge.svg)](https://github.com/sebi364/m109/actions/workflows/build-frontend.yml)
+[![Build and push Backend](https://github.com/sebi364/m109/actions/workflows/build-backend.yml/badge.svg)](https://github.com/sebi364/m109/actions/workflows/build-backend.yml)
 
 ## Scope
 The goal was to create a dynamic counter app to replace the current paper-heavy counting tasks. The application must be able to run on the mobile and must be intuitive.
