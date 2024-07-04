@@ -3,5 +3,4 @@ kind: ConfigMap
 metadata:
   name: frontend-config
 data:
-  BACKEND_URL: https://backend.k3snode1.loc/
-  PORT: 8080
+  BACKEND_URL: "https://backend.k3snode1.loc"
