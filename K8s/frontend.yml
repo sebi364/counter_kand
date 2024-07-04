@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: counter-frontend
+  template:
+    metadata:
+      labels:
+        app: counter-frontend
+    spec:
+      containers:
+        - name: counter-frontend
+          image: ghcr.io/sebi364/counter-frontend:v1
+          ports:
+            - containerPort: 8080
+          env:
+          - name: BACKEND_URL
+            valueFrom:
+              configMapKeyRef:
+                name: frontend-config
+                key: BACKEND_URL
+          
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: frontend-config
+                key: PORT
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: counter-frontend
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: counter-frontend
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: counter-frontend-ingress
+spec:
+  rules:
+    - host: frontend.k3snode1.loc
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: counter-frontend
+                port:
+                  number: 8080
