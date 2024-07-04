@@ -40,7 +40,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: counter-database
-                key: database-name
+                key: database_development
           
           - name: PASSPHRASE
             valueFrom:
